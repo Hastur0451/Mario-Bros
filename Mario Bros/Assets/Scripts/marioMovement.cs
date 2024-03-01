@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class MarioController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Speed of Mario's movement
-    public float jumpForce = 5f; // Force of Mario's jump
-    //public Transform groundCheck; // Transform to check if Mario is grounded
-    //public LayerMask groundLayer; // LayerMask to define what is considered ground
+    public float moveSpeed = 5f; 
+    public float jumpForce = 10f; 
+    public Transform groundCheck; 
+    public LayerMask groundLayer;
 
     private Rigidbody2D rb;
     private bool isGrounded = false;
@@ -16,16 +16,23 @@ public class MarioController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+
+        if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
+
     private void FixedUpdate()
     {
-        // Check if Mario is grounded
-        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
-
         // Horizontal movement
         float moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
-        // Flip Mario sprite
+        // Flip Mario sprite if necessary
         if (moveInput > 0 && !facingRight)
         {
             Flip();
@@ -34,15 +41,8 @@ public class MarioController : MonoBehaviour
         {
             Flip();
         }
-
-        // Jumping
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
     }
 
-    //flip Mario's sprite horizontally
     private void Flip()
     {
         facingRight = !facingRight;
