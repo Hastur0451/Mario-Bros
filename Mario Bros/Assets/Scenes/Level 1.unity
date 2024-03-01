@@ -198,6 +198,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2327091384369559658, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 254cf7fb49cb60c4fb014286171a0853, type: 2}
+    - target: {fileID: 2327091384369559658, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -206,16 +210,32 @@ PrefabInstance:
       value: Mario
       objectReference: {fileID: 0}
     - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
+      propertyPath: friction
+      value: 
+      objectReference: {fileID: 6200000, guid: 254cf7fb49cb60c4fb014286171a0853, type: 2}
+    - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
       propertyPath: jumpForce
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
+      propertyPath: noFriction
+      value: 
+      objectReference: {fileID: 6200000, guid: f353e861807ee17438a1bd433d56dbaa, type: 2}
     - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 671050926}
     - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
+      propertyPath: leftRaycastOrigin
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345767419775418228, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
+      propertyPath: rightRaycastOrigin
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7975223558085046252, guid: 7730e2f8a869f0644988523cac147f23, type: 3}
       propertyPath: m_LocalScale.x
