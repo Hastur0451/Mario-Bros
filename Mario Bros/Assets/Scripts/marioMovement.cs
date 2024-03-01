@@ -4,11 +4,10 @@ public class MarioController : MonoBehaviour
 {
     public float moveSpeed = 5f; 
     public float jumpForce = 10f; 
-    public Transform groundCheck; 
     public LayerMask groundLayer;
 
     private Rigidbody2D rb;
-    private bool isGrounded = false;
+    private bool isGrounded = true;
     private bool facingRight = true;
 
     private void Start()
@@ -18,8 +17,10 @@ public class MarioController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        // Check if Mario is grounded using Rigidbody2D's IsTouchingLayers method
+        isGrounded = rb.IsTouchingLayers(groundLayer);
 
+        // Check for jumping input in the Update method
         if (isGrounded && Input.GetButtonDown("Jump"))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
